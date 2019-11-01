@@ -2,15 +2,23 @@ body {
   background-color: #7159c1 !important;
 }
 
-.form {
+.form-login {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.form-register {
   margin-top: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background: #efefef; */
-  border-radius: 12px;
+  background: #efefef;
+  border-radius: 4px;
   padding: 1rem;
-  /* box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.3); */
+  box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
 .link {

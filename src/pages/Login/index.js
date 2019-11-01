@@ -103,7 +103,7 @@ import './style.css';
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100px',
-    width: '800px',
+    width: '900px',
   },
   image: {
     backgroundImage:
@@ -135,13 +135,13 @@ export default function SignInSide() {
   const classes = useStyles();
 
   return (
-    <div className="form">
+    <div className="form-login">
       <Grid container component="main" className={classes.root}>
         <CssBaseline />
         <Grid item xs={false} sm={4} md={7} className={classes.image} />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <div className={classes.paper}>
-            <Typography component="h1" variant="h5">
+            <Typography component="h1" variant="h5" color="primary">
               Login
             </Typography>
             <form className={classes.form} noValidate>
@@ -179,13 +179,13 @@ export default function SignInSide() {
                 Entrar
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link href="#" variant="body2">
+                <Grid item>
+                  <Link href="#" variant="body1">
                     Esqueceu a senha?
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="#" variant="body1">
                     Não tem uma conta? Cadastre-se
                   </Link>
                 </Grid>
