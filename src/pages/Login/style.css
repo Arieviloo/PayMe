@@ -3,14 +3,14 @@ body {
 }
 
 .form {
-  margin-top: 8rem;
+  margin-top: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #efefef;
+  /* background: #efefef; */
   border-radius: 12px;
   padding: 1rem;
-  box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.3); */
 }
 
 .link {
