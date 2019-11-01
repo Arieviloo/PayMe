@@ -11,6 +11,7 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import { Link as LinkRouter } from 'react-router-dom';
 import './style.css';
 
 // const useStyles = makeStyles(theme => ({
@@ -186,7 +187,12 @@ export default function SignInSide() {
                 </Grid>
                 <Grid item>
                   <Link href="#" variant="body1">
-                    Não tem uma conta? Cadastre-se
+                    <LinkRouter
+                      to="/register"
+                      style={{ textDecoration: 'none', color: '#391C99' }}
+                    >
+                      Não tem uma conta? Cadastre-se
+                    </LinkRouter>
                   </Link>
                 </Grid>
               </Grid>
