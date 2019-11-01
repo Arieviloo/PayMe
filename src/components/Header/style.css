@@ -6,7 +6,7 @@
   box-shadow: none;
   padding: 0.5rem 0px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .header-title {

@@ -29,14 +29,14 @@ export default class Header extends Component {
             color="inherit"
             onClick={() => this.toggleDrawer(true)}
           >
-            <MenuIcon />
+            {/* <MenuIcon /> */}
           </IconButton>
           <Box className="header-title">PayMe</Box>
 
-          <div className="header-logo-wrapper">
+          {/* <div className="header-logo-wrapper">
             <img src="" className="logo-image" alt="logo" />
             <div className="header-logo-title" />
-          </div>
+          </div> */}
 
           {/* <SideDrawer
             open={this.state.drawerOpen}
