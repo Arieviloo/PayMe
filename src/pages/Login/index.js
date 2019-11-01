@@ -168,17 +168,18 @@ export default function SignInSide() {
                 id="password"
                 autoComplete="current-password"
               />
-
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                <VpnKeyIcon />
-                Entrar
-              </Button>
+              <LinkRouter to="/profile" style={{ textDecoration: 'none' }}>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                >
+                  <VpnKeyIcon />
+                  Entrar
+                </Button>
+              </LinkRouter>
               <Grid container>
                 <Grid item>
                   <Link href="#" variant="body1">

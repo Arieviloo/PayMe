@@ -1,0 +1,32 @@
+/**
+ * HEADER
+ */
+ .header {
+  background-color: #413854;
+  box-shadow: none;
+  padding: 0.5rem 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.header-logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-logo-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.logo-image {
+  width: 3.6rem;
+  margin-bottom: 0.5rem;
+}
+
