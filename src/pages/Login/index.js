@@ -189,7 +189,7 @@ export default function SignInSide() {
                   <Link href="#" variant="body1">
                     <LinkRouter
                       to="/register"
-                      style={{ textDecoration: 'none', color: '#391C99' }}
+                      style={{ textDecoration: 'none', color: '#4B3B80' }}
                     >
                       Não tem uma conta? Cadastre-se
                     </LinkRouter>

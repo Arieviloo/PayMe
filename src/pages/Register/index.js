@@ -99,7 +99,7 @@ export default function SignUp() {
               <Link href="#" variant="body2">
                 <LinkRouter
                   to="/"
-                  style={{ textDecoration: 'none', color: '#391C99' }}
+                  style={{ textDecoration: 'none', color: '#4B3B80' }}
                 >
                   Tem uma conta? Conecte-se
                 </LinkRouter>
