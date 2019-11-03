@@ -15,15 +15,14 @@ export default function NewPay(props) {
               marginTop: '5px',
               width: '150px',
               height: '150px',
-              border: '2px dashed #333',
+              border: '2px dashed #7159C1',
               borderRadius: '50%',
               cursor: 'pointer',
             }}
-            onClick={props.onClick}
           >
             <i
               style={{
-                color: '#333',
+                color: '#7159C1',
                 fontSize: '80px',
                 padding: '32px',
               }}
@@ -32,8 +31,8 @@ export default function NewPay(props) {
           </div>
         </div>
         <div className="card-footer">
-          <span style={{ fontWeight: 'bold', color: '#333' }}>
-            Novo Pagamento
+          <span style={{ fontWeight: 'bold', color: '#7159C1' }}>
+            Nova Despesa
           </span>
         </div>
       </div>

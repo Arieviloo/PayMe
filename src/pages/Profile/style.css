@@ -3,14 +3,14 @@
   margin: 6% auto;
   max-width: 90%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   column-gap: 10px;
 
 }
 
 .row .card {
   text-align: center;
-  height: 272px;
+  height: 260px;
   box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.3);
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import EditIcon from '@material-ui/icons/Edit';
-import CloseIcon from '@material-ui/icons/Close';
+// import EditIcon from '@material-ui/icons/Edit';
+// import CloseIcon from '@material-ui/icons/Close';
 import './style.css';
 import { Progress } from 'antd';
 import accounting from 'accounting';
@@ -12,36 +12,28 @@ export default function Card(props) {
     <div className="row">
       <div className="card">
         <div className="card-icon">
-          <i className="icon-edit">
-            <EditIcon
-              style={{ color: '#7159c1' }}
-              onClick={props.editPayHandle}
-            />
-          </i>
-          <i className="icon-close">
-            <CloseIcon
-              style={{ color: '#7159c1' }}
-              onClick={props.closePayHandle}
-            />
-          </i>
+          <i className="fas fa-pen" onClick={props.editPayHandle} />
+          <i className="fas fa-times" onClick={props.closePayHandle} />
         </div>
 
         <div className="card-content">
           <Progress
-            type="dashboard"
-            width={155}
-            percent={props.porcetagem}
-            strokeWidth={8}
-            strokeColor="#7159c1"
+            type="circle"
+            width={177}
+            className="progress"
+            percent={props.valor}
+            strokeWidth={6}
+            strokeColor="#FF0000"
+            status="exception"
             format={() =>
               accounting.formatMoney(props.valor, 'R$ ', 2, '.', ',')
             }
           />
-        </div>
-        <div className="card-footer">
-          <span style={{ fontWeight: 'bold', color: '#7159c1' }}>
-            {props.nome}
-          </span>
+          <div className="card-footer">
+            <span style={{ fontWeight: 'bold', color: '#7159c1' }}>
+              {props.descricao}
+            </span>
+          </div>
         </div>
       </div>
     </div>

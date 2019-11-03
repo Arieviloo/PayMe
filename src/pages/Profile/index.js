@@ -1,51 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/index';
 import Card from '../../components/Card/index';
 import ModalPay from '../../components/ModalPay/index';
 import NewPay from '../../components/NewPay/index';
+import database from '../../services/database';
 import './style.css';
-// import { Container } from './styles';
 
 const Profile = () => {
   const [visivel, setVisivel] = useState(false);
   const [cadastro, setCadastro] = useState({});
+  const [payments, setPayments] = useState([]);
 
-  const payments = [
-    {
-      id: 1,
-      descricao: 'energia',
-      valor: 200,
-      porcetagem: 90,
-      dataResgiter: new Date().toISOString(),
-      pago: false,
-    },
-    {
-      id: 2,
-      descricao: 'água',
-      valor: 170,
-      porcetagem: 60,
-      dataResgiter: new Date().toISOString(),
-      pago: false,
-    },
-    {
-      id: 3,
-      descricao: 'net',
-      valor: 100,
-      porcetagem: 50,
-      dataResgiter: new Date().toISOString(),
-      pago: false,
-    },
-  ];
+  useEffect(() => {
+    database.listPay().then(response => {
+      setPayments(response);
+    });
+  });
 
-  const editPay = pay => {
-    setCadastro(pay);
+  // const payments = [
+  //   {
+  //     id: 1,
+  //     descricao: 'energia',
+  //     salario: 900,
+  //     valor: 2000,
+  //     porcetagem: 1,
+  //     dataResgiter: new Date().toISOString(),
+  //     pago: false,
+  //   },
+  //   {
+  //     id: 2,
+  //     descricao: 'água',
+  //     salario: 900,
+  //     valor: 170,
+  //     porcetagem: 100,
+  //     dataResgiter: new Date().toISOString(),
+  //     pago: false,
+  //   },
+  //   {
+  //     id: 3,
+  //     descricao: 'net',
+  //     salario: 900,
+  //     valor: 100,
+  //     porcentagem: 100,
+  //     dataResgiter: new Date().toISOString(),
+  //     pago: false,
+  //   },
+  // ];
+
+  const editPay = payment => {
+    setCadastro(payment);
     setVisivel(true);
   };
 
-  const closePay = async pay => console.log(`fechando o pagamento${pay.id}`);
+  const closePay = async payment => {
+    await database.closePay(payment.id);
+    database.listPay().then(response => {
+      setPayments(response);
+    });
+  };
 
   const onClose = () => {
     setVisivel(false);
+    database.listPay().then(response => {
+      setPayments(response);
+    });
   };
 
   return (
@@ -55,15 +73,25 @@ const Profile = () => {
         {payments.map(payment => (
           <Card
             key={payment.id}
-            nome={payment.descricao}
+            descricao={payment.descricao}
+            salario={payment.salario}
             valor={payment.valor}
-            porcetagem={payment.porcetagem}
+            dataResgiter={payment.dataResgiter}
+            porcentagem={payment.porcentagem}
             editPayHandle={() => editPay(payment)}
             closePayHandle={() => closePay(payment)}
           />
         ))}
-        <NewPay onClick={() => editPay({})} />
-        <ModalPay visivel={visivel} onClose={onClose} pay={cadastro} />
+        <NewPay
+          onClick={() =>
+            editPay({
+              dataResgiter: undefined,
+              valor: 0,
+              descricao: '',
+            })
+          }
+        />
+        <ModalPay visivel={visivel} onClose={onClose} payment={cadastro} />
       </div>
     </>
   );
