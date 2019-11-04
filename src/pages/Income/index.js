@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/index';
-import Card from '../../components/ReceitaCard/Card/index';
-import ModalPay from '../../components/ReceitaCard/ModalPay/index';
-import NewPay from '../../components/ReceitaCard/NewPay/index';
-// import database from '../../services/database';
+import Card from '../../components/Card/index';
+import ModalPay from '../../components/ModalPay/index';
+import NewPay from '../../components/NewPay/index';
+import database from '../../services/database';
 import './style.css';
 
 const Profile = () => {
@@ -11,35 +11,29 @@ const Profile = () => {
   const [cadastro, setCadastro] = useState({});
   const [payments, setPayments] = useState([]);
 
-  // useEffect(() => {
-  //   database.listPay().then(response => {
-  //     setPayments(response);
-  //   });
-  // });
+  useEffect(() => {
+    database.listPay().then(response => {
+      setPayments(response);
+    });
+  });
 
   const editPay = payment => {
     setCadastro(payment);
     setVisivel(true);
   };
-  const deletePay = () => {
-    console.log('deu ruim');
+
+  const deletePay = async payment => {
+    await database.deletePay(payment.id);
+    database.listPay().then(response => {
+      setPayments(response);
+    });
   };
 
-  // const deletePay = async payment => {
-  //   await database.deletePay(payment.id);
-  //   database.listPay().then(response => {
-  //     setPayments(response);
-  //   });
-  // };
-
-  // const onClose = () => {
-  //   setVisivel(false);
-  //   database.listPay().then(response => {
-  //     setPayments(response);
-  //   });
-  // };
   const onClose = () => {
     setVisivel(false);
+    database.listPay().then(response => {
+      setPayments(response);
+    });
   };
 
   return (
@@ -58,6 +52,7 @@ const Profile = () => {
             pago={payment.pago}
             editPayHandle={() => editPay(payment)}
             deletePayHandle={() => deletePay(payment)}
+            strokeColor="#fff"
           />
         ))}
         <NewPay
