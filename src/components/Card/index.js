@@ -50,8 +50,8 @@ export default function Card(props) {
           >
             {props.descricao}
           </Button> */}
-          <Button>
-            <div className="card-footer">
+          <Button size="small">
+            <div className="card-footer" style={{ fontSize: 20 }}>
               <span style={{ fontWeight: 'bold', color: '#7159c1' }}>
                 {props.descricao}
               </span>

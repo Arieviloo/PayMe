@@ -113,7 +113,12 @@ export default function SignInSide() {
               </LinkRouter>
               <Grid container>
                 <Grid item>
-                  <Link href="#" variant="body1" onClick={handleClickOpen}>
+                  <Link
+                    href="#"
+                    variant="body1"
+                    style={{ textDecoration: 'none', color: '#4B3B80' }}
+                    onClick={handleClickOpen}
+                  >
                     Esqueceu a senha?
                   </Link>
                   {/* MODAL ESQUECEU A SENHA */}
@@ -125,8 +130,8 @@ export default function SignInSide() {
                     <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
                     <DialogContent>
                       <DialogContentText>
-                        To subscribe to this website, please enter your email
-                        address here. We will send updates occasionally.
+                        Digite o email cadastrado e nós enviaremos um link para
+                        recuperação de senha.
                       </DialogContentText>
                       <TextField
                         autoFocus

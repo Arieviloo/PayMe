@@ -1,0 +1,30 @@
+@import '~antd/dist/antd.css';
+
+.ant-modal-content {
+  border-radius: o;
+}
+.ant-modal-header {
+  border-bottom: o;
+}
+.ant-modal-footer {
+  border-top: o;
+}
+
+.ant-form-item {
+  margin-bottom: 14px;
+}
+
+.ant-input-number-handler-wrap {
+  display: none;
+}
+
+.ant-input, .ant-input-number {
+  border: 0;
+  border-bottom: 2px solid #7159c1;
+  border-radius: 0;
+  border-left: 0;
+}
+
+.ant-input-number-input-wrap input {
+  padding-left: 0;
+}

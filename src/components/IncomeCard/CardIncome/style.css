@@ -1,6 +1,6 @@
 @import '~antd/dist/antd.css';
 
-.card {
+.card-income {
   position: relative;
   margin: .5rem 0 1rem 0;
   border-radius: 4px;
@@ -10,16 +10,17 @@
   text-transform: uppercase;
 }
 
-.card .card-content {
+.card-income .card-content-income {
   padding: 24px;
+
 }
 
-.card .card-footer {
+.card-income .card-footer-income {
   border-top: 1px solid #e6e6e6;
-  padding: 7px
+  padding: 7px;
 }
 
-.card .card-icon {
+.card-income .card-icon-income {
   padding: 10px;
   cursor: pointer;
   position: absolute;

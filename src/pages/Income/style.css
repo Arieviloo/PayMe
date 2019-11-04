@@ -1,0 +1,26 @@
+
+.row-income {
+  margin: 1% auto;
+  max-width: 85%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  column-gap: 10px;
+
+}
+
+.row-income .card-income {
+  text-align: center;
+  height: 260px;
+  box-shadow: 5px 5px 5px 3px rgba(0, 0, 0, 0.3);
+}
+
+.total {
+  display: block;
+  margin-top: 80px;
+  margin-left: 9% ;
+  font-size: 22px ;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+}
+
