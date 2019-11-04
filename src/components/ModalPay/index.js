@@ -7,13 +7,13 @@ import database from '../../services/database';
 const ModalPay = props => {
   const [descricao, setDescricao] = useState('');
   const [valor, setValor] = useState(0);
-  const [salario, setSalario] = useState(0);
+  // const [salario, setSalario] = useState(0);
   const [dataRegister, setDataRegister] = useState(null);
 
   useEffect(() => {
     setDescricao(props.payment.descricao);
     setValor(props.payment.valor);
-    setSalario(props.payment.salario);
+    // setSalario(props.payment.salario);
     setDataRegister(props.payment.dataRegister);
     if (props.payment.dataRegister) {
       setDataRegister(moment(props.payment.dataRegister));

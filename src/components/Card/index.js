@@ -21,7 +21,7 @@ export default function Card(props) {
             type="circle"
             width={177}
             className="progress"
-            percent={props.valor}
+            percent={100}
             strokeWidth={6}
             strokeColor="#FF0000"
             status="exception"

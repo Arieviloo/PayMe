@@ -52,8 +52,8 @@ const Profile = () => {
     setVisivel(true);
   };
 
-  const closePay = async payment => {
-    await database.closePay(payment.id);
+  const deletePay = async payment => {
+    await database.deletePay(payment.id);
     database.listPay().then(response => {
       setPayments(response);
     });
@@ -78,8 +78,9 @@ const Profile = () => {
             valor={payment.valor}
             dataResgiter={payment.dataResgiter}
             porcentagem={payment.porcentagem}
+            pago={payment.pago}
             editPayHandle={() => editPay(payment)}
-            closePayHandle={() => closePay(payment)}
+            deletePayHandle={() => deletePay(payment)}
           />
         ))}
         <NewPay
