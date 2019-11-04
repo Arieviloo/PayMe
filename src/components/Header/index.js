@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import AppBar from '@material-ui/core/AppBar';
+import { Box, AppBar } from '@material-ui/core';
 import ToolBar from '@material-ui/core/Toolbar';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
-// import SideDrawer from '../side-drawer/SideDrawer';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { Link } from 'react-router-dom';
+import SideDrawer from '../side-drawer/index';
 // import Logo from './../../res/images/logo.png';
-import { Box } from '@material-ui/core';
 
 import './style.css';
 
@@ -29,7 +30,7 @@ export default class Header extends Component {
             color="inherit"
             onClick={() => this.toggleDrawer(true)}
           >
-            {/* <MenuIcon /> */}
+            <MenuIcon />
           </IconButton>
           <Box className="header-title">PayMe</Box>
 
@@ -37,11 +38,14 @@ export default class Header extends Component {
             <img src="" className="logo-image" alt="logo" />
             <div className="header-logo-title" />
           </div> */}
+          <Link to="/" style={{ color: '#fff' }}>
+            <ExitToAppIcon />
+          </Link>
 
-          {/* <SideDrawer
+          <SideDrawer
             open={this.state.drawerOpen}
             onClose={value => this.toggleDrawer(value)}
-          /> */}
+          />
         </ToolBar>
       </AppBar>
     );

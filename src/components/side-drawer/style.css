@@ -1,0 +1,21 @@
+/**
+ * NAVIGATION
+ */
+ .nav-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #3c3c3c;
+  padding: 1rem 2rem;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+  background-color: #4B3B80;
+  color: #f1f1f1;
+}
