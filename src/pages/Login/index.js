@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import 'firebase/auth';
+import 'firebase/firebase-firestore';
 import {
   // Container,
   Button,
@@ -17,7 +19,8 @@ import {
   DialogActions,
 } from '@material-ui/core';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
-import { Link as LinkRouter } from 'react-router-dom';
+import { Link as LinkRouter, withRouter, useHistory } from 'react-router-dom';
+import fb from '../../services/firebase';
 import './style.css';
 
 const useStyles = makeStyles(theme => ({
@@ -51,7 +54,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignInSide() {
+function SignInSide() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const history = useHistory();
+
   const classes = useStyles();
   {
     /* PROPS ESQUECEU A SENHA */
@@ -65,6 +72,25 @@ export default function SignInSide() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  function login(props) {
+    try {
+      fb.auth()
+        .signInWithEmailAndPassword(email, password)
+        .then(res => {
+          console.log('auth', res.user.email);
+          localStorage.setItem('uid', res.user.uid);
+          localStorage.setItem('username', res.user.email);
+
+          history.push('/profile');
+          // props.history.push({
+          //   pathname: '/profile',
+          // });
+        });
+    } catch (error) {
+      alert(error.message);
+    }
+  }
 
   return (
     <div className="form-login">
@@ -87,6 +113,8 @@ export default function SignInSide() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
               <TextField
                 variant="outlined"
@@ -98,19 +126,21 @@ export default function SignInSide() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
               />
-              <LinkRouter to="/profile" style={{ textDecoration: 'none' }}>
+              <Link to="/profile" style={{ textDecoration: 'none' }}>
                 <Button
-                  type="submit"
                   fullWidth
                   variant="contained"
                   color="primary"
                   className={classes.submit}
+                  onClick={login}
                 >
                   <VpnKeyIcon />
                   Entrar
                 </Button>
-              </LinkRouter>
+              </Link>
               <Grid container>
                 <Grid item>
                   <Link
@@ -170,3 +200,5 @@ export default function SignInSide() {
     </div>
   );
 }
+
+export default withRouter(SignInSide);

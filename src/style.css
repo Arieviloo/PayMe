@@ -1,3 +1,14 @@
 @import '~antd/dist/antd.css';
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
+/* Routes */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,4 +1,7 @@
-import React from 'react';
+/* eslint-disable no-console */
+import React, { useState } from 'react';
+import 'firebase/auth';
+import 'firebase/firebase-firestore';
 import {
   Container,
   Button,
@@ -9,7 +12,8 @@ import {
   Typography,
   makeStyles,
 } from '@material-ui/core';
-import { Link as LinkRouter } from 'react-router-dom';
+import { Link as LinkRouter, withRouter } from 'react-router-dom';
+import fb from '../../services/firebase';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -36,8 +40,31 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignUp() {
+function SignUp(props) {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const classes = useStyles();
+
+  async function onRegister() {
+    try {
+      fb.auth()
+        .createUserWithEmailAndPassword(email, password)
+        .then(res => {
+          alert('registrado com sucesso!!!');
+          fb.firestore()
+            .collection('user')
+            .doc(res.user.uid)
+            .set({
+              nome: name,
+            });
+        });
+      // props.history.replace('/profile');
+    } catch (error) {
+      alert(error.message);
+    }
+  }
 
   return (
     <div className="top-margin">
@@ -59,6 +86,8 @@ export default function SignUp() {
                   id="firstName"
                   label="Nome"
                   autoFocus
+                  value={name}
+                  onChange={e => setName(e.target.value)}
                 />
               </Grid>
 
@@ -71,6 +100,8 @@ export default function SignUp() {
                   label="Email"
                   name="email"
                   autoComplete="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -83,15 +114,18 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="current-password"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
                 />
               </Grid>
             </Grid>
             <Button
-              type="submit"
+              // type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={onRegister}
             >
               Cadastrar
             </Button>
@@ -113,3 +147,5 @@ export default function SignUp() {
     </div>
   );
 }
+
+export default withRouter(SignUp);

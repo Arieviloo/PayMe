@@ -10,33 +10,25 @@ const ModalPay = props => {
   // const [salario, setSalario] = useState(0);
   const [dataRegister, setDataRegister] = useState(null);
 
-  useEffect(() => {
-    setDescricao(props.payment.descricao);
-    setValor(props.payment.valor);
-    // setSalario(props.payment.salario);
-    setDataRegister(props.payment.dataRegister);
-    if (props.payment.dataRegister) {
-      setDataRegister(moment(props.payment.dataRegister));
-    }
-  }, [props.payment]);
+  // useEffect(() => {
+  //   setDescricao(props.payment.descricao);
+  //   setValor(props.payment.valor);
+  //   // setSalario(props.payment.salario);
+  //   setDataRegister(props.payment.dataRegister);
+  //   if (props.payment.dataRegister) {
+  //     setDataRegister(moment(props.payment.dataRegister));
+  //   }
+  // }, );
 
   const handleCancel = () => {
     props.onClose();
   };
   const handleOk = async () => {
-    if (props.payment.id) {
-      database.editPay(props.payment.id, {
-        descricao,
-        valor,
-        dataRegister: dataRegister ? dataRegister.toISOString() : null,
-      });
-    } else {
-      database.addPay({
-        descricao,
-        valor,
-        dataRegister: dataRegister ? dataRegister.toISOString() : null,
-      });
-    }
+    const json = {
+      descricao,
+      valor,
+    };
+    database.addPay(localStorage.getItem('uid'), json);
 
     props.onClose();
   };

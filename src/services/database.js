@@ -8,9 +8,13 @@ const porcentagem = payment => {
   };
 };
 
-const addPay = payment => {
+const addPay = (id, payment) => {
   const db = firebase.firestore();
-  return db.collection('payments').add(porcentagem(payment));
+  return db
+    .collection('user')
+    .doc(id)
+    .collection('despesa')
+    .add(payment);
 };
 
 const editPay = (id, payment) => {

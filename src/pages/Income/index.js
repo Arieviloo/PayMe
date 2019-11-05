@@ -19,7 +19,7 @@ export default function Income() {
     },
     {
       id: 2,
-      descricao: 'Decimo',
+      descricao: 'Décimo',
       valor: 500,
       dataRegister: new Date().toISOString(),
       recebido: true,
