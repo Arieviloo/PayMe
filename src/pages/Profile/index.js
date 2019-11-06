@@ -33,12 +33,12 @@ const Profile = () => {
   }, [payments]);
 
   const editPay = payment => {
-    // setCadastro(payment);
+    setCadastro(payment);
     setVisivel(true);
   };
 
   const deletePay = async payment => {
-    await database.deletePay(payment.id);
+    await database.deletePay(payment.localStorage.getItem('uid'));
     database.listPay().then(response => {
       setPayments(response);
     });
@@ -51,7 +51,7 @@ const Profile = () => {
   return (
     <>
       <Header />
-      <div className="total">total: {total}</div>
+      <div className="total">total: R$ {total}</div>
 
       <div className="row">
         {payments.map(payment => (
@@ -66,7 +66,7 @@ const Profile = () => {
             deletePayHandle={() => deletePay(payment)}
           />
         ))}
-        <NewPay onClick={() => setVisivel(true)} />
+        <NewPay onClick={() => setVisivel(true)} total={total} />
         <ModalPay visivel={visivel} onClose={onClose} payment={cadastro} />
       </div>
     </>

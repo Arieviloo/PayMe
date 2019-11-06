@@ -1,12 +1,12 @@
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 
-const porcentagem = payment => {
-  return {
-    ...payment,
-    porcentagem: (payment.valor * 100) / payment.salario,
-  };
-};
+// const porcentagem = payment => {
+//   return {
+//     ...payment,
+//     porcentagem: (payment.valor * 100) / payment.salario,
+//   };
+// };
 
 const addPay = (id, payment) => {
   const db = firebase.firestore();
@@ -20,22 +20,24 @@ const addPay = (id, payment) => {
 const editPay = (id, payment) => {
   const db = firebase.firestore();
   return db
-    .collection('payments')
+    .collection('user')
     .doc(id)
-    .set(porcentagem(payment));
+    .collection('despesa')
+    .set(payment);
 };
 
 const deletePay = id => {
   const db = firebase.firestore();
   return db
-    .collection('payments')
+    .collection('user')
     .doc(id)
+    .collection('despesa')
     .delete();
 };
 
 const listPay = async () => {
   const db = firebase.firestore();
-  const response = await db.collection('payments').get();
+  const response = await db.collection('user').get();
   return response.docs.map(i => {
     return {
       id: i.id,

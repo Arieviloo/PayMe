@@ -32,7 +32,7 @@ export default function NewPay(props) {
         </div>
         <div className="card-footer">
           <span style={{ fontWeight: 'bold', color: '#7159C1' }}>
-            Nova Despesa
+            R$ {props.total}
           </span>
         </div>
       </div>

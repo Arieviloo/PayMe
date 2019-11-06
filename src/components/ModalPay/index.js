@@ -7,23 +7,32 @@ import database from '../../services/database';
 const ModalPay = props => {
   const [descricao, setDescricao] = useState('');
   const [valor, setValor] = useState(0);
-  // const [salario, setSalario] = useState(0);
   const [dataRegister, setDataRegister] = useState(null);
 
   // useEffect(() => {
   //   setDescricao(props.payment.descricao);
   //   setValor(props.payment.valor);
-  //   // setSalario(props.payment.salario);
   //   setDataRegister(props.payment.dataRegister);
   //   if (props.payment.dataRegister) {
   //     setDataRegister(moment(props.payment.dataRegister));
   //   }
-  // }, );
+  // });
 
   const handleCancel = () => {
     props.onClose();
   };
   const handleOk = async () => {
+    // if (localStorage.getItem('uid')) {
+    //   await database.editPay(localStorage.getItem('uid'), {
+    //     descricao,
+    //     valor,
+    //   });
+    // } else {
+    //   await database.addPay({
+    //     descricao,
+    //     valor,
+    //   });
+    // }
     const json = {
       descricao,
       valor,
@@ -64,17 +73,7 @@ const ModalPay = props => {
             onChange={value => setValor(value)}
           />
         </Form.Item>
-        {/* <Form.Item label="SALÁRIO">
-          <InputNumber
-            defaultValue={0}
-            formatter={value =>
-              `R$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, '.')
-            }
-            parser={value => value.replace(/R\$\s?|(\.*)/g, '')}
-            value={salario}
-            onChange={value => setSalario(value)}
-          />
-        </Form.Item> */}
+
         <Form.Item label="DATA DO VENCIMENTO">
           <DatePicker
             format="DD-MM-YYYY"

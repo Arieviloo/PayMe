@@ -5,14 +5,24 @@ import 'firebase/firebase-firestore';
 import firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAHoOruLMUMlAvI4-s3DdD0SyOPhsuuBFM',
-  authDomain: 'payme-e1e50.firebaseapp.com',
-  databaseURL: 'https://payme-e1e50.firebaseio.com',
-  projectId: 'payme-e1e50',
-  storageBucket: 'payme-e1e50.appspot.com',
-  messagingSenderId: '813994851118',
-  appId: '1:813994851118:web:c5288cd7d1b9bf875f18bf',
+  apiKey: 'AIzaSyAsyVHF8bUp9Efi_cqWFdCcAVeXTFkRFEM',
+  authDomain: 'payme-d58b0.firebaseapp.com',
+  databaseURL: 'https://payme-d58b0.firebaseio.com',
+  projectId: 'payme-d58b0',
+  storageBucket: 'payme-d58b0.appspot.com',
+  messagingSenderId: '1065569000114',
+  appId: '1:1065569000114:web:bde388099c0cb7d749c7ab',
 };
+
+// const firebaseConfig = {
+//   apiKey: 'AIzaSyAHoOruLMUMlAvI4-s3DdD0SyOPhsuuBFM',
+//   authDomain: 'payme-e1e50.firebaseapp.com',
+//   databaseURL: 'https://payme-e1e50.firebaseio.com',
+//   projectId: 'payme-e1e50',
+//   storageBucket: 'payme-e1e50.appspot.com',
+//   messagingSenderId: '813994851118',
+//   appId: '1:813994851118:web:c5288cd7d1b9bf875f18bf',
+// };
 
 export default firebase.initializeApp(firebaseConfig);
 
