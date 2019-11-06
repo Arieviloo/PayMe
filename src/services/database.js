@@ -21,17 +21,20 @@ const editPay = (id, payment) => {
   const db = firebase.firestore();
   return db
     .collection('user')
-    .doc(id)
+    .doc(localStorage.getItem('uid'))
     .collection('despesa')
-    .set(payment);
+    .doc(id)
+    .set(payment)
+    .update();
 };
 
 const deletePay = id => {
   const db = firebase.firestore();
   return db
     .collection('user')
-    .doc(id)
+    .doc(localStorage.getItem('uid'))
     .collection('despesa')
+    .doc(id)
     .delete();
 };
 

@@ -6,16 +6,40 @@ import Button from '@material-ui/core/Button';
 import './style.css';
 import { Progress } from 'antd';
 import accounting from 'accounting';
+import database from '../../services/database';
 
 // import { Container } from './styles';
 
 export default function Card(props) {
+  function editar(id) {
+    // fb.firestore()
+    //   .collection('user')
+    //   .doc(localStorage.getItem('uid'))
+    //   .collection('despesa')
+    //   .doc(id)
+    //   .update({
+    //     valor: 55,
+    //   });
+  }
+
+  function del(id) {
+    // fb.firestore()
+    //   .collection('user')
+    //   .doc(localStorage.getItem('uid'))
+    //   .collection('despesa')
+    //   .doc(id)
+    //   .delete();
+  }
+
   return (
     <div className="row">
       <div className="card">
         <div className="card-icon">
-          <i className="fas fa-pen" onClick={props.editPayHandle} />
-          <i className="fas fa-times" onClick={props.deletePayHandle} />
+          <i className="fas fa-pen" onClick={() => props.editPayHandle()} />
+          <i
+            className="fas fa-times"
+            onClick={() => database.deletePay(props.id)}
+          />
         </div>
 
         <div className="card-content">

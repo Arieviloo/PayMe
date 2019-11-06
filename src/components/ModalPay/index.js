@@ -22,7 +22,7 @@ const ModalPay = props => {
     props.onClose();
   };
   const handleOk = async () => {
-    // if (localStorage.getItem('uid')) {
+    // if (id) {
     //   await database.editPay(localStorage.getItem('uid'), {
     //     descricao,
     //     valor,

@@ -23,8 +23,11 @@ const Profile = () => {
         const arr = [];
         let x = 0;
         await querySnapshot.forEach(doc => {
-          console.log(doc.id, ' => ', doc.data());
-          arr.push(doc.data());
+          const despesa = {
+            id: doc.id,
+            data: doc.data(),
+          };
+          arr.push(despesa);
           x += doc.data().valor;
         });
         setTotal(x);
@@ -35,13 +38,6 @@ const Profile = () => {
   const editPay = payment => {
     setCadastro(payment);
     setVisivel(true);
-  };
-
-  const deletePay = async payment => {
-    await database.deletePay(payment.localStorage.getItem('uid'));
-    database.listPay().then(response => {
-      setPayments(response);
-    });
   };
 
   const onClose = () => {
@@ -56,14 +52,12 @@ const Profile = () => {
       <div className="row">
         {payments.map(payment => (
           <Card
-            key={payment.id}
-            descricao={payment.descricao}
-            salario={payment.salario}
-            valor={payment.valor}
-            dataResgiter={payment.dataResgiter}
-            pago={payment.pago}
+            id={payment.id}
+            descricao={payment.data.descricao}
+            valor={payment.data.valor}
+            dataResgiter={payment.data.dataResgiter}
+            pago={payment.data.pago}
             editPayHandle={() => editPay(payment)}
-            deletePayHandle={() => deletePay(payment)}
           />
         ))}
         <NewPay onClick={() => setVisivel(true)} total={total} />
