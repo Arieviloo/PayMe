@@ -24,8 +24,7 @@ const editPay = (id, payment) => {
     .doc(localStorage.getItem('uid'))
     .collection('despesa')
     .doc(id)
-    .set(payment)
-    .update();
+    .update(payment);
 };
 
 const deletePay = id => {

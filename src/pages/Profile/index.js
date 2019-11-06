@@ -52,6 +52,7 @@ const Profile = () => {
       <div className="row">
         {payments.map(payment => (
           <Card
+            el={payment}
             id={payment.id}
             descricao={payment.data.descricao}
             valor={payment.data.valor}
