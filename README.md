@@ -6,3 +6,19 @@
 ![image](https://user-images.githubusercontent.com/21297341/68053161-0ccf0d00-fcca-11e9-8222-456974e937a7.png)
 
 
+## :information_source: How To Use
+
+```bash
+# Clone this repository
+$ git clone https://github.com/Arieviloo/PayMe
+
+# Go into the front path
+$ cd PayMe
+
+# Install dependencies
+$ yarn
+
+# Run the Front
+$ yarn start
+
+```
