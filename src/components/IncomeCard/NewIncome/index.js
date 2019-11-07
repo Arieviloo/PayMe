@@ -1,9 +1,10 @@
 import React from 'react';
+import AddIcon from '@material-ui/icons/Add';
 import './style.css';
 
 // import { Container } from './styles';
 
-export default function NewIncome(props) {
+export default function NewPay(props) {
   return (
     <div className="row" style={{ cursor: 'pointer' }} onClick={props.onClick}>
       <div className="card">
@@ -31,7 +32,7 @@ export default function NewIncome(props) {
         </div>
         <div className="card-footer">
           <span style={{ fontWeight: 'bold', color: '#7159C1' }}>
-            Nova Receita
+            Adicionar Receita
           </span>
         </div>
       </div>

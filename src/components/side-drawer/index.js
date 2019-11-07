@@ -12,10 +12,10 @@ const SideDrawer = props => {
     >
       <List component="nav" className="nav-bar">
         <Link to="/profile" className="nav-link">
-          Minhas Despesas
+          Despesas
         </Link>
         <Link to="/income" className="nav-link">
-          Minhas Receitas
+          Receitas
         </Link>
       </List>
     </Drawer>

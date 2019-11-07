@@ -12,7 +12,7 @@ import {
   Typography,
   makeStyles,
 } from '@material-ui/core';
-import { Link as LinkRouter, withRouter } from 'react-router-dom';
+import { Link as LinkRouter, withRouter, useHistory } from 'react-router-dom';
 import fb from '../../services/firebase';
 
 const useStyles = makeStyles(theme => ({
@@ -44,12 +44,14 @@ function SignUp(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
 
   const classes = useStyles();
 
   async function onRegister() {
     try {
-      fb.auth()
+      await fb
+        .auth()
         .createUserWithEmailAndPassword(email, password)
         .then(res => {
           alert('registrado com sucesso!!!');
@@ -60,7 +62,7 @@ function SignUp(props) {
               nome: name,
             });
         });
-      // props.history.replace('/profile');
+      history.push('/');
     } catch (error) {
       alert(error.message);
     }

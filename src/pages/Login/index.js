@@ -83,9 +83,6 @@ function SignInSide() {
           localStorage.setItem('username', res.user.email);
 
           history.push('/profile');
-          // props.history.push({
-          //   pathname: '/profile',
-          // });
         });
     } catch (error) {
       alert(error.message);

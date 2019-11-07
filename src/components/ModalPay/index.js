@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './style.css';
 import { Modal, Button, Form, Input, InputNumber, DatePicker } from 'antd';
 import moment from 'moment';
-import { TextField } from '@material-ui/core';
 import database from '../../services/database';
 
 const ModalPay = props => {
@@ -15,7 +14,10 @@ const ModalPay = props => {
     if (props.obj !== undefined) {
       setValor(props.obj.data.valor);
       setDescricao(props.obj.data.descricao);
-      // setDataRegister(props.obj.data.dataRegister);
+      // setDataRegister(null);
+      // if (props.income.dataRegister) {
+      //   setDataRegister(moment(props.income.dataRegister));
+      // }
     }
   }, []);
 
@@ -26,6 +28,7 @@ const ModalPay = props => {
     const json = {
       descricao,
       valor,
+      dataRegister,
       pago,
     };
     database.addPay(localStorage.getItem('uid'), json);
@@ -80,7 +83,7 @@ const ModalPay = props => {
             <DatePicker
               format="DD-MM-YYYY"
               placeholder="Data de vencimento"
-              // value={props.obj.data.dataRegister}
+              value={dataRegister}
               onChange={value => setDataRegister(value)}
             />
           </Form.Item>

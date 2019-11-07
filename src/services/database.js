@@ -1,12 +1,7 @@
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 
-// const porcentagem = payment => {
-//   return {
-//     ...payment,
-//     porcentagem: (payment.valor * 100) / payment.salario,
-//   };
-// };
+// Despesa
 
 const addPay = (id, payment) => {
   const db = firebase.firestore();
@@ -48,9 +43,55 @@ const listPay = async () => {
   });
 };
 
+// Receita
+
+const addIncome = (id, income) => {
+  const db = firebase.firestore();
+  return db
+    .collection('user')
+    .doc(id)
+    .collection('receita')
+    .add(income);
+};
+
+const editIncome = (id, income) => {
+  const db = firebase.firestore();
+  return db
+    .collection('user')
+    .doc(localStorage.getItem('uid'))
+    .collection('receita')
+    .doc(id)
+    .update(income);
+};
+
+const deleteIncome = id => {
+  const db = firebase.firestore();
+  return db
+    .collection('user')
+    .doc(localStorage.getItem('uid'))
+    .collection('receita')
+    .doc(id)
+    .delete();
+};
+
+const listIncome = async () => {
+  const db = firebase.firestore();
+  const response = await db.collection('user').get();
+  return response.docs.map(i => {
+    return {
+      id: i.id,
+      ...i.data(),
+    };
+  });
+};
+
 export default {
   addPay,
   editPay,
   deletePay,
   listPay,
+  addIncome,
+  editIncome,
+  deleteIncome,
+  listIncome,
 };

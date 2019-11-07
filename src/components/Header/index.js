@@ -6,7 +6,6 @@ import IconButton from '@material-ui/core/IconButton';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { Link } from 'react-router-dom';
 import SideDrawer from '../side-drawer/index';
-// import Logo from './../../res/images/logo.png';
 
 import './style.css';
 
@@ -34,10 +33,6 @@ export default class Header extends Component {
           </IconButton>
           <Box className="header-title">PayMe</Box>
 
-          {/* <div className="header-logo-wrapper">
-            <img src="" className="logo-image" alt="logo" />
-            <div className="header-logo-title" />
-          </div> */}
           <Link to="/" style={{ color: '#fff' }}>
             <ExitToAppIcon />
           </Link>

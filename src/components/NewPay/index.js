@@ -1,8 +1,5 @@
 import React from 'react';
-import AddIcon from '@material-ui/icons/Add';
 import './style.css';
-
-// import { Container } from './styles';
 
 export default function NewPay(props) {
   return (
@@ -32,7 +29,7 @@ export default function NewPay(props) {
         </div>
         <div className="card-footer">
           <span style={{ fontWeight: 'bold', color: '#7159C1' }}>
-            R$ {props.total}
+            Adicionar Despesa
           </span>
         </div>
       </div>
